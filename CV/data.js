@@ -7,7 +7,7 @@ const PROFILE = {
     phone: "+966 54 707 7600",
     whatsapp: "966547077600",
     email: "ans125na@gmail.com",
-    linkedin: "https://www.linkedin.com/in/",   // ← ضع رابط حسابك
+    linkedin: "https://www.linkedin.com/in/eng-anas-alshammari-791234419",
     github: "",                                 // ← اختياري: رابط GitHub
     photo: "assets/photo.jpg",                  // ← ضع صورتك الشخصية بهذا الاسم
     timezone: "Asia/Riyadh",

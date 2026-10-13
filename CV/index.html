@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anas Alshammari — Software Engineer</title>
+    <meta name="description" content="Anas Naif Alshammari — Software Engineer & Flutter Mobile Developer from Hail, Saudi Arabia." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        // تطبيق الثيم واللغة المحفوظة قبل عرض الصفحة
+        try {
+            const t = localStorage.getItem("theme");
+            if (t) document.documentElement.dataset.theme = t;
+            const q = new URLSearchParams(location.search).get("lang");
+            if (q) localStorage.setItem("lang", q);
+            if (localStorage.getItem("lang") === "ar") { document.documentElement.lang = "ar"; document.documentElement.dir = "rtl"; }
+        } catch (e) { }
+    </script>
+</head>
+
+<body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <!-- ========== شريط التنقل ========== -->
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="#home" class="logo" data-t="first"></a>
+            <nav id="menu" class="menu"></nav>
+            <div class="nav-actions">
+                <button type="button" id="langBtn" class="icon-btn" aria-label="Language"></button>
+                <button type="button" id="themeBtn" class="icon-btn" aria-label="Theme"></button>
+                <a id="cvBtn" class="btn btn-sm btn-primary" download></a>
+                <button type="button" id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site">
+        <!-- ========== الرئيسية ========== -->
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <p class="mono accent hello" data-t="hello"></p>
+                <h1 class="hero-name" data-t="first"></h1>
+                <h2 class="hero-role" data-t="role"></h2>
+                <p class="mono muted hero-loc">📍 <span data-t="city"></span> · <span id="clock"></span></p>
+                <p class="hero-intro" data-t="intro"></p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary" data-t="btn.projects"></a>
+                    <a href="#contact" class="btn btn-ghost" data-t="btn.contact"></a>
+                </div>
+                <div id="socials" class="socials"></div>
+            </div>
+            <div class="hero-photo">
+                <div class="ring">
+                    <img id="photo" alt="" />
+                    <span id="initials" class="initials">AN</span>
+                </div>
+                <div class="float-chip chip-a"><b>Flutter</b><span>iOS · Android</span></div>
+                <div class="float-chip chip-b"><b id="certCount"></b><span data-t="nav.certs"></span></div>
+            </div>
+        </section>
+
+        <div id="stats" class="stats reveal"></div>
+
+        <!-- ========== نبذة ========== -->
+        <section id="about" class="section reveal">
+            <p class="tag" data-t="about.tag"></p>
+            <h2 class="title" data-t="about.title"></h2>
+            <div class="about-grid">
+                <div id="aboutBody" class="about-body"></div>
+                <dl id="facts" class="card facts"></dl>
+            </div>
+        </section>
+
+        <!-- ========== الخبرات ========== -->
+        <section id="experience" class="section reveal">
+            <p class="tag" data-t="expTag"></p>
+            <h2 class="title" data-t="expTitle"></h2>
+            <div id="timeline" class="timeline"></div>
+        </section>
+
+        <!-- ========== المشاريع ========== -->
+        <section id="projects" class="section reveal">
+            <p class="tag" data-t="projTag"></p>
+            <h2 class="title" data-t="projTitle"></h2>
+            <div id="projectList" class="projects"></div>
+        </section>
+
+        <!-- ========== المهارات ========== -->
+        <section id="skills" class="section reveal">
+            <p class="tag" data-t="skillsTag"></p>
+            <h2 class="title" data-t="skillsTitle"></h2>
+            <div id="skillGrid" class="skill-grid"></div>
+        </section>
+
+        <!-- ========== التعليم والشهادات ========== -->
+        <section id="certs" class="section reveal">
+            <p class="tag" data-t="eduTag"></p>
+            <h2 class="title" data-t="eduTitle"></h2>
+            <div id="edu" class="card edu"></div>
+            <div id="certGrid" class="cert-grid"></div>
+        </section>
+
+        <!-- ========== تواصل ========== -->
+        <section id="contact" class="section contact reveal">
+            <p class="tag" data-t="contactTag"></p>
+            <p class="muted contact-body" data-t="contactBody"></p>
+            <div id="contactCards" class="contact-cards"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span class="logo" data-t="first"></span>
+        <span class="muted">© <span id="year"></span> <span data-t="name"></span> — <span data-t="footer"></span></span>
+    </footer>
+
+    <!-- عارض صور الشهادات -->
+    <dialog id="viewer" class="viewer">
+        <button type="button" class="viewer-close" aria-label="Close">×</button>
+        <img id="viewerImg" alt="" />
+        <p id="viewerCaption"></p>
+    </dialog>
+
+    <!-- نسخة ATS — تظهر فقط عند الطباعة / حفظ PDF -->
+    <article id="ats" class="ats"></article>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
